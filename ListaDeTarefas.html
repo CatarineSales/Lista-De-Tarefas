@@ -3,100 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckList</title>
-    <style>
-        body{
-            width: 100%; /* Largura: 100% da tela */
-            text-align: center; /* Alinhamento do conteúdo: centro */
-            font-family: monospace; /* Fonte da letra: monospace */
-            margin-top:50px; /* Margem do topo: 50px */
-            color:aliceblue; /* Cor da letra: branco */
-            user-select:none; /* Seleção do usuário: deligada (evita o usuário de copiar o texto) */
-        }
-
-        #geral { /* dentro desta caixa fica toda a lista de tarefas */
-            width:500px; /* Largura da caixa: 500 pixels */
-            background-color:rgb(23, 120, 255); /*Cor do fundo: azul (RGB define a intensidade de cada cor - vermelho, verde e azul, nessa ordem) */
-            padding: 20px; /* Margem interna: 20 pixels */
-            margin: auto; /* Margem: automatica (faz o elemento ficar centralizado) */
-            text-align: center; /* Alinhamento do conteúdo: centro */
-            border-radius: 30px; /* Arredondamento da borda: 30 pixels */
-            min-height: 200px; /* Altura mínima: 200 pixels (para garantir que a caixa não fique pequena*/
-        }
-
-        #input { /* Campo onde vamos digitar as tarefas */
-            width: 65%; /* Largura: 65% da caixa (porque ela esta dentro da caixa) */
-            height: 30px; /* Altura: 38 pixels */
-            font-family:monospace; /* Fonte da letra: monospace */
-            border: none; /* Borda: desativada */
-            border-radius: 8px; /* Arredondamento da borda: 8 pixels */
-            padding-left: 10px; /* Margem interna à esquerda: 10 pixels */
-            font-size: 16px; /* Tamanho da letra: 16 pixels */
-        }
-        #botao { /* Botão de adicionar */
-            font-size: 16px; /* Tamanho da letra: 16 pixels */
-            font-family: monospace; /* Fonte da letra: monospace*/
-            width: 25; /*Largura: 25% da caixa (porque ela esta dentro da caixa)*/
-            height: 38px; /* Altura: 38 pixels */
-            border-radius: 10px; /* Arredondamento da borda: 10 pixels */
-            background-color:rgb(233, 117, 0); /* Cor de fundo: Laranja */
-            color:white; /* Cor da letra: branco */
-            border: none; /* Borda: desativada */
-        }
-
-        #botao:hover { /* Estilo quando passar o mouse sobre o botão */
-            background-color: rgb(211, 107, 3); /* Cor de fundo: laranja (Escuro)*/
-                }
-
-        #botao:active { /* Estilo quando clicar no botão */
-            background-color: rgb(96, 49, 1); /* Cor de fundo: marrom */
-        }
-
-        #tarefas { /* Estilo das tarefas */
-            width: 90%; /* Largura: 90% da caixa (porque ela esta dentro da caixa) */ 
-            margin: auto; /* Margem: automática (faz o elemento ficar centralizado) */
-            font-size: 16px; /* Tamanho da letra: 16 pixels */
-            text-align: left; /* Alinhamento do texto: esquerda */
-            cursor: pointer; /* Cursor: ponteiro (faz o cursor do mouse virar um ponteiro quando passar em cima das tarefas - mostrando que els são clicaveis)*/
-        }
-    </style>
-
+    <title>ListaDeTarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="geral">
+    <div class="geral">
         <h1>Lista de Tarefas</h1>
         <input type="text" placeholder="Digite sua tarefa" id="input">
         <button id="botao">Adicionar</button>
         <div id="tarefas"></div>
     </div>
-    <script>
-        let BotaoAdd = document.getElementById('botao');
-        let Input = document.getElementById('input');
-        let Tarefas = document.getElementById('tarefas');
-        let marcado = false;
 
-        BotaoAdd.addEventListener('click', function() {
-            if ( Input.value != ''){
-                var  tarefa = document.createElement('p');
-                Tarefas.appendChild(tarefa);
-                tarefa.innerText = '- ' + Input.value;
-                Input.value = '';
-                tarefa.addEventListener('click', function() {
-                    if (marcado == false) {
-                        tarefa.style.textDecoration = 'Line-through'
-                        marcado = true;
-                    }
-
-                    else {
-                        tarefa.style.textDecoration = '';
-                        marcado = false;
-                    }
-                })
-                tarefa.addEventListener( 'dblclick', function() {
-                    Tarefas.removeChild(tarefa)
-                })
-            }
-        })
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
